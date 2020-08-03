@@ -31,8 +31,11 @@ ln -s $HOME/.dotfiles/shell/.yarnrc $HOME/.yarnrc
 ln -s $HOME/.dotfiles/macos/.mackup.cfg $HOME/.mackup.cfg
 
 # Fix missing font characters (see https://github.com/robbyrussell/oh-my-zsh/issues/1906)
-cd ~/.oh-my-zsh/themes/
-git checkout d6a36b1 agnoster.zsh-theme
+# cd ~/.oh-my-zsh/themes/
+# git checkout d6a36b1 agnoster.zsh-theme
+
+# Symlink iterm2 profile list file to iterm2 dynamic folder
+ln -s $HOME/.dotfiles/shell/.iterm2rc/com.googlecode.iterm2.plist $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/com.googlecode.iterm2.plist
 
 # Activate z
 cd ~/.dotfiles/shell
@@ -108,10 +111,6 @@ echo 'Install imagick'
 echo '---------------'
 pecl install imagick
 
-echo 'Install memcached'
-echo '-----------------'
-pecl install memcached
-
 echo 'Install xdebug'
 echo '--------------'
 pecl install xdebug
@@ -119,10 +118,6 @@ pecl install xdebug
 echo 'Install redis'
 echo '-------------'
 pecl install redis
-
-echo 'Install laravel envoy'
-echo '---------------------'
-composer global require "laravel/envoy=~1.0"
 
 echo 'Install phpunit-watcher'
 echo '-----------------------'
@@ -137,10 +132,10 @@ echo '---------------------'
 composer global require laravel/valet
 valet install
 
-echo 'Install mysql'
-echo '-------------'
-brew install mysql@5.7
-brew services start mysql@5.7
+echo 'Install MariaDB'
+echo '---------------'
+brew install mariadb
+brew services start mariadb
 
 echo 'Install yarn'
 echo '------------'
@@ -157,6 +152,116 @@ brew install mackup
 echo 'Install zsh-autosuggestions'
 echo '---------------------------'
 brew install zsh-autosuggestions
+
+# ------------------------------
+
+echo 'Install curl'
+echo '--------------'
+brew install curl
+
+echo 'Install Alfred'
+echo '--------------'
+brew cask install alfred
+
+echo 'Install mas (Mac Apple Store)'
+echo '-----------------------------'
+brew install mas-cli/tap/mas
+
+echo 'Install Xcode'
+echo '-------------'
+mas install 497799835
+xcode-select --install
+
+echo 'Install Bear'
+echo '------------'
+mas install 1091189122
+
+echo 'Install Bitwarden'
+echo '------------'
+mas install 1352778147
+
+echo 'Install Sequel Ace'
+echo '------------------'
+mas install 1518036000
+
+echo 'Install Slack'
+echo '--------------'
+mas install 803453959
+
+echo 'Install Spark'
+echo '--------------'
+mas install 1176895641
+
+echo 'Install Termius'
+echo '---------------'
+mas install 1176074088
+
+echo 'Install uBlock'
+echo '---------------'
+mas install 1385985095
+
+echo 'Install Visual Studio Code'
+echo '--------------------------'
+brew cask install visual-studio-code
+
+echo 'Install VirtualBox'
+echo '--------------'
+brew cask install virtualbox
+
+echo 'Install Tinkerwell'
+echo '------------------'
+brew cask install tinkerwell
+
+echo 'Install Spectacle'
+echo '-----------------'
+brew cask install spectacle
+
+echo 'Install Skype'
+echo '-------------'
+brew cask install skype
+
+echo 'Install Postman'
+echo '---------------'
+brew cask install postman
+
+echo 'Install Opera'
+echo '-------------'
+brew cask install opera
+
+echo 'Install Firefox'
+echo '--------------'
+brew cask install firefox
+
+echo 'Install Google Chrome'
+echo '--------------'
+brew cask install google-chrome 
+
+echo 'Install Dropbox'
+echo '--------------'
+brew cask install dropbox
+
+echo 'Install Keka'
+echo '--------------'
+brew cask install keka
+
+echo 'Install Notion'
+echo '--------------'
+brew cask install notion
+
+echo 'Install Forticlient'
+echo '--------------'
+brew cask install forticlient
+
+echo 'Install GrandPerspective'
+echo '--------------'
+brew cask install grandperspective
+
+echo 'Install '
+echo '--------------'
+brew cask install 
+
+1147396723 WhatsApp (2.2029.5)
+836505650 Battery Monitor (2.4.4)
 
 echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'

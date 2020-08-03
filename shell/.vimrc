@@ -2,7 +2,7 @@
 
 syntax enable
 
-"256 colours, please
+"256 colours, please"
 set t_Co=256
 
 "line numbers"
