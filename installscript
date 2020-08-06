@@ -41,6 +41,8 @@ ln -s $HOME/.dotfiles/shell/.iterm2rc/com.googlecode.iterm2.plist $HOME/Library/
 cd ~/.dotfiles/shell
 chmod +x z.sh
 
+. macos/mas-app.sh
+
 echo 'Install composer'
 echo '----------------'
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -67,13 +69,13 @@ echo 'Install wget'
 echo '------------'
 brew install wget --overwrite
 
+echo 'Install Vim'
+echo '-----------'
+brew install vim
+
 echo 'Install httpie'
 echo '--------------'
 brew install httpie
-
-echo 'Install ncdu'
-echo '------------'
-brew install ncdu
 
 echo 'Install hub'
 echo '-----------'
@@ -153,115 +155,7 @@ echo 'Install zsh-autosuggestions'
 echo '---------------------------'
 brew install zsh-autosuggestions
 
-# ------------------------------
-
-echo 'Install curl'
-echo '--------------'
-brew install curl
-
-echo 'Install Alfred'
-echo '--------------'
-brew cask install alfred
-
-echo 'Install mas (Mac Apple Store)'
-echo '-----------------------------'
-brew install mas-cli/tap/mas
-
-echo 'Install Xcode'
-echo '-------------'
-mas install 497799835
-xcode-select --install
-
-echo 'Install Bear'
-echo '------------'
-mas install 1091189122
-
-echo 'Install Bitwarden'
-echo '------------'
-mas install 1352778147
-
-echo 'Install Sequel Ace'
-echo '------------------'
-mas install 1518036000
-
-echo 'Install Slack'
-echo '--------------'
-mas install 803453959
-
-echo 'Install Spark'
-echo '--------------'
-mas install 1176895641
-
-echo 'Install Termius'
-echo '---------------'
-mas install 1176074088
-
-echo 'Install uBlock'
-echo '---------------'
-mas install 1385985095
-
-echo 'Install Visual Studio Code'
-echo '--------------------------'
-brew cask install visual-studio-code
-
-echo 'Install VirtualBox'
-echo '--------------'
-brew cask install virtualbox
-
-echo 'Install Tinkerwell'
-echo '------------------'
-brew cask install tinkerwell
-
-echo 'Install Spectacle'
-echo '-----------------'
-brew cask install spectacle
-
-echo 'Install Skype'
-echo '-------------'
-brew cask install skype
-
-echo 'Install Postman'
-echo '---------------'
-brew cask install postman
-
-echo 'Install Opera'
-echo '-------------'
-brew cask install opera
-
-echo 'Install Firefox'
-echo '--------------'
-brew cask install firefox
-
-echo 'Install Google Chrome'
-echo '--------------'
-brew cask install google-chrome 
-
-echo 'Install Dropbox'
-echo '--------------'
-brew cask install dropbox
-
-echo 'Install Keka'
-echo '--------------'
-brew cask install keka
-
-echo 'Install Notion'
-echo '--------------'
-brew cask install notion
-
-echo 'Install Forticlient'
-echo '--------------'
-brew cask install forticlient
-
-echo 'Install GrandPerspective'
-echo '--------------'
-brew cask install grandperspective
-
-echo 'Install '
-echo '--------------'
-brew cask install 
-
-1147396723 WhatsApp (2.2029.5)
-836505650 Battery Monitor (2.4.4)
+. macos/work-app.sh
 
 echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'
