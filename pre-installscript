@@ -24,7 +24,7 @@ spctl --add /Applications/iTerm.app/
 # Run iTerm.app outside of Terminal
 # nohup open /Applications/iTerm.app/ &>/dev/null &
 source ~/.dotfiles/macos/iterm.sh
-iterm ~/.dotfiles ./bootstrap.sh
+iterm ~/.dotfiles ~/.dotfiles/bootstrap
 
 # Kill current Terminal window since we have installed iTerm2
 kill -9 $(ps -p $(ps -p $PPID -o ppid=) -o ppid=) 

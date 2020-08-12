@@ -2,8 +2,8 @@
 #
 # bootstrap installs things.
 
-function bootstrapTerminal() {	
-	sudo -v #ask password beforehand
+function installScript() {	
+	# sudo -v #ask password beforehand
 	source ~/.dotfiles/installscript
 }
 
@@ -11,19 +11,72 @@ function preInstallScript() {
 	source ~/.dotfiles/pre-installscript
 }
 
-function installWorkApplications() {}
+function installWorkApplications() {
+	source ~/.dotfiles/macos/work-app.sh
+}
 
-function installMASApplications() {}
+function installMASApplications() {
+	source ~/.dotfiles/macos/mas-app.sh
+}
 
-function installAdditionnalApplications() {}
+function installAdditionnalApplications() {
+	source ~/.dotfiles/macos/additionnal-app.sh
+}
+
+function runOSXModifications() {
+	sudo -v #ask password beforehand
+	source ~/.dotfiles/macos/set-defaults.sh
+}
 
 
-echo 'Bootstrap terminal'
-echo '------------------'
-echo 'This will reset your terminal. Are you sure you want to to this? (y/n) '
-read -p 'Answer: '  reply
+# echo 'Bootstrap terminal'
+# echo '------------------'
+# echo 'This will reset your terminal. Are you sure you want to to this? (y/n) '
+# read -p 'Answer: '  reply
 
-if [[ $reply =~ ^[Yy]$ ]]
-then
-    bootstrapTerminal
-fi
+# if [[ $reply =~ ^[Yy]$ ]]
+# then
+#     bootstrapTerminal
+# fi
+
+finished=false
+while [[ "$finished" != true ]]; do
+	echo 'Choose what you want to do : '
+	echo '-----------------------------'
+	echo '1. Pre-install script'
+	echo '2. Install script'
+	echo '3. Install work applications'
+	echo '4. Install MAS applications'
+	echo '5. Install Additionnal applications'
+	echo '6. OSX defaults modifications'
+	echo '0. Quit'
+	echo '-----------------------------'
+	read -p 'Choose number : ' menu
+
+	case $menu in
+		0) 
+			finished=true
+		;;
+		1)
+			preInstallScript
+		;;
+		2)
+			installScript
+		;;
+		3)
+			installWorkApplications
+		;;
+		4)
+			installMASApplications
+		;;
+		5)
+			installAdditionnalApplications
+		;;
+		6)
+			runOSXModifications
+		;;
+		*)
+			finished=true
+		;;
+	esac
+done

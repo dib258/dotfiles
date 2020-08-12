@@ -2,6 +2,18 @@
 # echo '-------------------'
 # brew install task taskd tasksh
 
+echo 'Install httpie'
+echo '--------------'
+brew install httpie
+
+echo 'Install ack'
+echo '-----------'
+brew install ack
+
+echo 'Install doctl'
+echo '-------------'
+brew install doctl
+
 echo 'Install phpunit-watcher'
 echo '-----------------------'
 composer global require spatie/phpunit-watcher

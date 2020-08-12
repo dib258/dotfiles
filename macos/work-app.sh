@@ -54,5 +54,10 @@ echo 'Install Bitwarden'
 echo '-----------------'
 brew cask install bitwarden
 
+echo 'Install F.lux'
+echo '-------------'
+brew cask install flux
 
-
+echo 'Install Spotify'
+echo '---------------'
+brew cask install spotify
