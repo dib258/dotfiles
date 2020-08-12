@@ -1,14 +1,14 @@
 echo 'Install Usefull Tools'
 echo '--------------'
-brew install curl htop nmap links geoip watch ffmpeg speedtest-cli tldr jq taskwarrior wifi-password youtube-dl gnupg libpng jpeg highlight ssh-copy-id
-
-echo 'Install Alfred'
-echo '--------------'
-brew cask install alfred
+brew install curl htop nmap links geoip watch ffmpeg speedtest-cli tldr jq wifi-password youtube-dl gnupg libpng jpeg highlight ssh-copy-id
 
 echo 'Install Visual Studio Code'
 echo '--------------------------'
 brew cask install visual-studio-code
+
+echo 'Install Slack'
+echo '-------------'
+brew cask install slack
 
 echo 'Install VirtualBox'
 echo '--------------'
@@ -26,25 +26,17 @@ echo 'Install Spectacle'
 echo '-----------------'
 brew cask install spectacle
 
-echo 'Install Skype'
-echo '-------------'
-brew cask install skype
-
 echo 'Install Postman'
 echo '---------------'
 brew cask install postman
 
-echo 'Install Opera'
-echo '-------------'
-brew cask install opera
-
-echo 'Install Firefox'
-echo '--------------'
-brew cask install firefox
-
 echo 'Install Google Chrome'
 echo '--------------'
 brew cask install google-chrome 
+
+echo 'Install Sequel Ace'
+echo '------------------'
+brew cask install sequel-ace
 
 echo 'Install Dropbox'
 echo '--------------'
@@ -58,10 +50,9 @@ echo 'Install Notion'
 echo '--------------'
 brew cask install notion
 
-echo 'Install Forticlient'
-echo '--------------'
-brew cask install forticlient
+echo 'Install Bitwarden'
+echo '-----------------'
+brew cask install bitwarden
 
-echo 'Install GrandPerspective'
-echo '--------------'
-brew cask install grandperspective
+
+

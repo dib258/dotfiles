@@ -8,40 +8,8 @@ echo 'Install oh-my-zsh'
 echo '-----------------'
 rm -rf $HOME/.oh-my-zsh
 curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-
-# Add global gitignore
-ln -s $HOME/.dotfiles/shell/.global-gitignore $HOME/.global-gitignore
-git config --global core.excludesfile $HOME/.global-gitignore
-
-# Symlink zsh prefs
-rm $HOME/.zshrc
-ln -s $HOME/.dotfiles/shell/.zshrc $HOME/.zshrc
-
-# Symlink vim prefs
-rm $HOME/.vimrc
-ln -s $HOME/.dotfiles/shell/.vimrc $HOME/.vimrc
-rm $HOME/.vim
-ln -s $HOME/.dotfiles/shell/.vim $HOME/.vim
-
-# Symlink yarn prefs
-rm $HOME/.yarnrc
-ln -s $HOME/.dotfiles/shell/.yarnrc $HOME/.yarnrc
-
-# Symlink the Mackup config
-ln -s $HOME/.dotfiles/macos/.mackup.cfg $HOME/.mackup.cfg
-
-# Fix missing font characters (see https://github.com/robbyrussell/oh-my-zsh/issues/1906)
-# cd ~/.oh-my-zsh/themes/
-# git checkout d6a36b1 agnoster.zsh-theme
-
-# Symlink iterm2 profile list file to iterm2 dynamic folder
-ln -s $HOME/.dotfiles/shell/.iterm2rc/com.googlecode.iterm2.plist $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/com.googlecode.iterm2.plist
-
-# Activate z
-cd ~/.dotfiles/shell
-chmod +x z.sh
-
-. macos/mas-app.sh
+# Remove bad access to zsh
+compaudit | xargs chmod g-w,o-w
 
 echo 'Install composer'
 echo '----------------'
@@ -100,9 +68,12 @@ brew cask install --force qlcolorcode qlstephen qlmarkdown quicklook-json qlpret
 
 echo 'Install php'
 echo '-----------'
+brew tap exolnet/homebrew-deprecated
 brew install php@7.0
 brew install php@7.1
+
 brew install php@7.2
+brew install php@7.3
 brew install php@7.4
 
 echo 'Install imagemagick'
@@ -121,14 +92,6 @@ echo 'Install redis'
 echo '-------------'
 pecl install redis
 
-echo 'Install phpunit-watcher'
-echo '-----------------------'
-composer global require spatie/phpunit-watcher
-
-echo 'Install mixed-content-scanner-cli'
-echo '---------------------------------'
-composer global require spatie/mixed-content-scanner-cli
-
 echo 'Install laravel valet'
 echo '---------------------'
 composer global require laravel/valet
@@ -143,10 +106,6 @@ echo 'Install yarn'
 echo '------------'
 brew install yarn
 
-echo 'Install ghostscript'
-echo '-------------------'
-brew install ghostscript
-
 echo 'Install mackup'
 echo '--------------'
 brew install mackup
@@ -157,17 +116,16 @@ brew install zsh-autosuggestions
 
 . macos/work-app.sh
 
+. macos/symbolic-link.sh
+
 echo '++++++++++++++++++++++++++++++'
 echo '++++++++++++++++++++++++++++++'
-echo 'All done!'
-echo 'Things to do to make the agnoster terminal theme work:'
-echo '1. Install menlo patched font included in ~/.dotfiles/misc https://gist.github.com/qrush/1595572/raw/Menlo-Powerline.otf'
-echo '2. Install patched solarized theme included in ~/.dotfiles/misc'
+
 
 echo '++++++++++++++++++++++++++++++'
 echo 'Some optional tidbits'
 
-echo '1. Make sure dropbox is running first. If you have not backed up via Mackup yet, then run `mackup backup` to symlink preferences for a wide collection of apps to your dropbox. If you already had a backup via mackup run `mackup restore` You'\''ll find more info on Mackup here: https://github.com/lra/mackup.'
+echo '1. Make sure dropbox or iCloud is running first. If you have not backed up via Mackup yet, then run `mackup backup` to symlink preferences for a wide collection of apps to your dropbox. If you already had a backup via mackup run `mackup restore` You'\''ll find more info on Mackup here: https://github.com/lra/mackup.'
 echo '2. Set some sensible os x defaults by running: $HOME/.dotfiles/macos/set-defaults.sh'
 echo '3. Make a .dotfiles-custom/shell/.aliases for your personal commands'
 

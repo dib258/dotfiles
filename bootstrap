@@ -7,6 +7,16 @@ function bootstrapTerminal() {
 	source ~/.dotfiles/installscript
 }
 
+function preInstallScript() {
+	source ~/.dotfiles/pre-installscript
+}
+
+function installWorkApplications() {}
+
+function installMASApplications() {}
+
+function installAdditionnalApplications() {}
+
 
 echo 'Bootstrap terminal'
 echo '------------------'

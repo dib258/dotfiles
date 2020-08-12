@@ -1,0 +1,30 @@
+#!/bin/bash
+
+echo 'Install xcode to install the rest of applications'
+echo '-------------------------------------------------'
+xcode-select --install
+
+echo 'Check if git is installed as we need it for later'
+echo '-------------------------------------------------'
+git --version
+
+echo 'Install of iTerm2 and open it so that we can start installation'
+echo '---------------------------------------------------------------'
+
+cd ~/Downloads
+curl -O https://iterm2.com/downloads/stable/iTerm2-3_2_7.zip
+unzip iTerm2-3_2_7.zip
+mv iTerm.app/ /Applications/
+rm iTerm2-3_2_7.zip
+cd ~/.dotfiles
+
+# Ask for permission
+spctl --add /Applications/iTerm.app/
+
+# Run iTerm.app outside of Terminal
+# nohup open /Applications/iTerm.app/ &>/dev/null &
+source ~/.dotfiles/macos/iterm.sh
+iterm ~/.dotfiles ./bootstrap.sh
+
+# Kill current Terminal window since we have installed iTerm2
+kill -9 $(ps -p $(ps -p $PPID -o ppid=) -o ppid=) 
