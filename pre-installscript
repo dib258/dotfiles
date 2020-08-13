@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo 'Install xcode to install the rest of applications'
-echo '-------------------------------------------------'
-xcode-select --install
+#echo 'Install xcode to install the rest of applications'
+#echo '-------------------------------------------------'
+#xcode-select --install
 
-echo 'Check if git is installed as we need it for later'
-echo '-------------------------------------------------'
-git --version
+#echo 'Check if git is installed as we need it for later'
+#echo '-------------------------------------------------'
+#git --version
 
 echo 'Install of iTerm2 and open it so that we can start installation'
 echo '---------------------------------------------------------------'
