@@ -3,17 +3,26 @@ ln -s $HOME/.dotfiles/shell/.global-gitignore $HOME/.global-gitignore
 git config --global core.excludesfile $HOME/.global-gitignore
 
 # Symlink zsh prefs
-# rm $HOME/.zshrc
+if [[ -e "$HOME/.zshrc" ]]; then
+    rm $HOME/.zshrc
+fi
 ln -s $HOME/.dotfiles/shell/.zshrc $HOME/.zshrc
 
 # Symlink vim prefs
-# rm $HOME/.vimrc
+if [[ -e "$HOME/.vimrc" ]]; then
+    rm $HOME/.vimrc
+fi
 ln -s $HOME/.dotfiles/shell/.vimrc $HOME/.vimrc
-# rm $HOME/.vim
+
+if [[ -e "$HOME/.vim" ]]; then
+    rm $HOME/.vim    
+fi
 ln -s $HOME/.dotfiles/shell/.vim $HOME/.vim
 
 # Symlink yarn prefs
-# rm $HOME/.yarnrc
+if [[ -e "$HOME/.yarnrc" ]]; then
+    rm $HOME/.yarnrc
+fi
 ln -s $HOME/.dotfiles/shell/.yarnrc $HOME/.yarnrc
 
 # Symlink the Mackup config

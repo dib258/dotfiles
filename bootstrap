@@ -23,60 +23,207 @@ function installAdditionnalApplications() {
 	source ~/.dotfiles/macos/additionnal-app.sh
 }
 
+function installSymbolicLinks() {
+	source ~/.dotfiles/macos/set-defaults.sh
+}
+
 function runOSXModifications() {
 	sudo -v #ask password beforehand
 	source ~/.dotfiles/macos/set-defaults.sh
 }
 
+	cat <<'TITLE'
 
-# echo 'Bootstrap terminal'
-# echo '------------------'
-# echo 'This will reset your terminal. Are you sure you want to to this? (y/n) '
-# read -p 'Answer: '  reply
-
-# if [[ $reply =~ ^[Yy]$ ]]
-# then
-#     bootstrapTerminal
-# fi
+██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
+██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝
+██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗
+██║  ██║██║   ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║
+██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║
+╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
+                                                             
+TITLE
 
 finished=false
 while [[ "$finished" != true ]]; do
-	echo 'Choose what you want to do : '
-	echo '-----------------------------'
+	cat <<'TITLE'
+                                                            
+█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗
+╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝
+                                                            
+TITLE
+	echo 'Choose an item for more informations'
+	echo '------------------------------------'
 	echo '1. Pre-install script'
 	echo '2. Install script'
 	echo '3. Install work applications'
 	echo '4. Install MAS applications'
 	echo '5. Install Additionnal applications'
-	echo '6. OSX defaults modifications'
+	echo '6. Symbolic links of rc files'
+	echo '7. OSX defaults modifications'
 	echo '0. Quit'
-	echo '-----------------------------'
+	echo '------------------------------------'
 	read -p 'Choose number : ' menu
+	echo '------------------------------------'
 
 	case $menu in
-		0) 
-			finished=true
-		;;
 		1)
-			preInstallScript
+			echo 'This script will install iTerm2 and switch to it.'
+			read -p 'Install iTerm2? [y/n] : ' reply
+			
+			if [[ $reply =~ ^[Yy]$ ]]
+			then
+				preInstallScript    
+			fi
 		;;
 		2)
-			installScript
+			echo 'This script will install the following :'
+			echo ' - Oh-my-zsh'
+			echo ' - Homebrew'
+			echo ' - node 10'
+			echo ' - pkg-config'
+			echo ' - wget'
+			echo ' - composer'
+			echo ' - vim'
+			echo ' - hub'
+			echo ' - quicklock plugins'
+			echo ' - php'
+			echo ' - imagick'
+			echo ' - xdebug'
+			echo ' - redis'
+			echo ' - Laravel Valet'
+			echo ' - MariaDB'
+			echo ' - Yarn'
+			echo ' - Mackup'
+			echo ' - zsh-autosuggestions'
+
+			echo '----------------------------'
+			read -p 'Install everything? [y/n] : ' reply
+			echo '----------------------------'
+
+			if [[ $reply =~ ^[Yy]$ ]]
+			then
+				installScript    
+			fi
 		;;
 		3)
-			installWorkApplications
+			echo 'This script will install the following :'
+			echo ' - Usefull CLI Tools (curl htop nmap links geoip watch ffmpeg speedtest-cli tldr jq wifi-password youtube-dl gnupg libpng jpeg highlight ssh-copy-id)'
+			echo ' - Visual Studio Code'
+			echo ' - Slack'
+			echo ' - Virtualbox'
+			echo ' - Vagrant'
+			echo ' - Tinkerwell'
+			echo ' - Spectacle'
+			echo ' - Postman'
+			echo ' - Google Chrome'
+			echo ' - Sequel Ace'
+			echo ' - Dropbox'
+			echo ' - Keka'
+			echo ' - Notion'
+			echo ' - Bitwarden'
+			echo ' - F.lux'
+			echo ' - Spotify'
+
+			echo '----------------------------'
+			read -p 'Install everything? [y/n] : ' reply
+			echo '----------------------------'
+			
+			if [[ $reply =~ ^[Yy]$ ]]
+			then
+				installWorkApplications    
+			fi
 		;;
 		4)
-			installMASApplications
+			echo 'This script will install the following :'
+			echo ' - Mac Apple Store CLI'
+			echo ' - Bear'
+			echo ' - Spark'
+
+			echo '----------------------------'
+			read -p 'Install everything? [y/n] : ' reply
+			echo '----------------------------'
+			
+			if [[ $reply =~ ^[Yy]$ ]]
+			then
+				installMASApplications    
+			fi
 		;;
 		5)
-			installAdditionnalApplications
+			echo 'This script will install the following :'
+			echo ' - httpie'
+			echo ' - ack'
+			echo ' - doctl'
+			echo ' - phpunit-watcher'
+			echo ' - Mixed Content Scannerl CLI (Spatie)'
+			echo ' - GhostScript'
+			echo ' - Skype'
+			echo ' - Termius'
+			echo ' - Opera'
+			echo ' - Firefox'
+			echo ' - FortiClient'
+			echo ' - Alfred'
+			echo ' - GrandPerspective'
+
+			echo '----------------------------'
+			read -p 'Install everything? [y/n] : ' reply
+			echo '----------------------------'
+			
+			if [[ $reply =~ ^[Yy]$ ]]
+			then
+				installAdditionnalApplications    
+			fi
 		;;
-		6)
-			runOSXModifications
+		6) 
+			echo 'This script will create symbolic links for rc files with pre-build configuration'
+
+			echo ' - .global-gitignore'
+			echo ' - .zshrc'
+			echo ' - .vimrc'
+			echo ' - .vim'
+			echo ' - .yarnrc'
+			echo ' - .mackup.cfg'
+			echo ' - iterm2.plist'
+			echo ' - chmod z.sh'
+			echo '------------------------------'
+			read -p 'Create symbolic links? [y/n] : ' reply
+			echo '------------------------------'
+			
+			if [[ $reply =~ ^[Yy]$ ]]
+			then
+				installSymbolicLinks
+			fi
 		;;
-		*)
+		7)	
+			echo 'This script will change OSX defaults'
+
+			echo '----------------------------'
+			read -p 'Change OSX defaults? [y/n] : ' reply
+			echo '----------------------------'
+			
+			if [[ $reply =~ ^[Yy]$ ]]
+			then
+				runOSXModifications    
+			fi
+		;;
+		0 | *)
 			finished=true
+			cat <<'TITLE'
+			
+███████╗███████╗███████╗    ██╗   ██╗ ██████╗ ██╗   ██╗       ██╗     
+██╔════╝██╔════╝██╔════╝    ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╗╚██╗    
+███████╗█████╗  █████╗       ╚████╔╝ ██║   ██║██║   ██║    ╚═╝ ██║    
+╚════██║██╔══╝  ██╔══╝        ╚██╔╝  ██║   ██║██║   ██║    ▄█╗ ██║    
+███████║███████╗███████╗       ██║   ╚██████╔╝╚██████╔╝    ▀═╝██╔╝    
+╚══════╝╚══════╝╚══════╝       ╚═╝    ╚═════╝  ╚═════╝        ╚═╝     
+                                                                      
+███╗   ██╗███████╗██╗  ██╗████████╗    ████████╗██╗███╗   ███╗███████╗
+████╗  ██║██╔════╝╚██╗██╔╝╚══██╔══╝    ╚══██╔══╝██║████╗ ████║██╔════╝
+██╔██╗ ██║█████╗   ╚███╔╝    ██║          ██║   ██║██╔████╔██║█████╗  
+██║╚██╗██║██╔══╝   ██╔██╗    ██║          ██║   ██║██║╚██╔╝██║██╔══╝  
+██║ ╚████║███████╗██╔╝ ██╗   ██║          ██║   ██║██║ ╚═╝ ██║███████╗
+╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝   ╚═╝          ╚═╝   ╚═╝╚═╝     ╚═╝╚══════╝
+                                                                      
+TITLE
 		;;
 	esac
 done
