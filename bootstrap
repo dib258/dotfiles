@@ -60,6 +60,7 @@ TITLE
 	echo '5. Install Additionnal applications'
 	echo '6. Symbolic links of rc files'
 	echo '7. OSX defaults modifications'
+	echo "8. Fix Oh-my-Zsh's rights"
 	echo '0. Quit'
 	echo '------------------------------------'
 	read -p 'Choose number : ' menu
@@ -207,6 +208,17 @@ TITLE
 				runOSXModifications    
 			fi
 		;;
+		8)
+			echo '----------------------------'
+			read -p "Fix oh-my-zsh's rights? [y/n] : " reply
+			echo '----------------------------'
+			
+			if [[ $reply =~ ^[Yy]$ ]]
+			then
+				# Remove bad access to zsh
+				compaudit | xargs chmod g-w,o-w    
+			fi
+
 		0 | *)
 			finished=true
 			cat <<'TITLE'

@@ -1,4 +1,4 @@
-function purgeAscii() {
+function title() {
     cat <<'TITLE'
   ____                       
  |  _ \ _   _ _ __ __ _  ___ 
@@ -11,8 +11,8 @@ TITLE
 }
 
 function a() {
-    purgeAscii
-    echo 'Artisan shortcut brought to you by Capsule'
+    title
+    echo 'Artisan purge brought to you by Capsule'
 
     if [[ $@ == "version" ]] then
 
@@ -54,7 +54,7 @@ function a() {
 }
 
 function c() {
-    purgeAscii
+    title
     echo 'Composer shortcut brought to you by Capsule'
 
     if [[ $@ == "clean" ]] then
@@ -76,7 +76,7 @@ function c() {
 }
 
 function n() {
-    purgeAscii    
+    title    
     echo 'Npm shortcut brought to you by Capsule'
 
     if [[ $@ == "clean" ]] then
@@ -97,7 +97,7 @@ function n() {
 }
 
 function y() {
-    purgeAscii  
+    title  
     echo 'Yarn shortcut brought to you by Capsule'
 
     if [[ $@ == "clean" ]] then
