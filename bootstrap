@@ -95,6 +95,7 @@ TITLE
 			echo ' - Yarn'
 			echo ' - Mackup'
 			echo ' - zsh-autosuggestions'
+			echo ' - Usefull CLI Tools (curl htop nmap links geoip watch ffmpeg speedtest-cli tldr jq wifi-password youtube-dl gnupg libpng jpeg highlight ssh-copy-id)'
 
 			echo '----------------------------'
 			read -p 'Install everything? [y/n] : ' reply
@@ -107,7 +108,7 @@ TITLE
 		;;
 		3)
 			echo 'This script will install the following :'
-			echo ' - Usefull CLI Tools (curl htop nmap links geoip watch ffmpeg speedtest-cli tldr jq wifi-password youtube-dl gnupg libpng jpeg highlight ssh-copy-id)'
+			
 			echo ' - Visual Studio Code'
 			echo ' - Slack'
 			echo ' - Virtualbox'
@@ -195,6 +196,7 @@ TITLE
 		;;
 		7)	
 			echo 'This script will change OSX defaults'
+			echo 'I invite you to go see the documentations for more informations'
 
 			echo '----------------------------'
 			read -p 'Change OSX defaults? [y/n] : ' reply

@@ -1,8 +1,3 @@
-echo '---------------------'
-echo 'Install Usefull Tools'
-echo '---------------------'
-brew install curl htop nmap links geoip watch ffmpeg speedtest-cli tldr jq wifi-password youtube-dl gnupg libpng jpeg highlight ssh-copy-id
-
 echo '--------------------------'
 echo 'Install Visual Studio Code'
 echo '--------------------------'
