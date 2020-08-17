@@ -15,7 +15,7 @@ DEFAULT_USER=`whoami`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git purge)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -29,9 +29,6 @@ source $ZSH/oh-my-zsh.sh
 # 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 # done
 # unset file
-
-# Load purge shell functions
-# source ~/.dotfiles/shell/.purge/.purge_functions
 
 . $HOME/.dotfiles/shell/z.sh
 
@@ -48,6 +45,7 @@ unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 export PATH=$HOME/.dotfiles/bin:$PATH
+
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
 # Import ssh keys in keychain
@@ -57,27 +55,7 @@ ssh-add -A 2>/dev/null;
 export XDEBUG_CONFIG="idekey=VSCODE"
 
 # Enable autosuggestions
-# source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-###-tns-completion-start-###
-if [ -f /Users/dib258/.tnsrc ]; then 
-    source /Users/dib258/.tnsrc 
-fi
-###-tns-completion-end-###
-
-# NativeScript
-
-###-tns-completion-start-###
-if [ -f /Users/dib258/.tnsrc ]; then
-    source /Users/dib258/.tnsrc
-fi
-###-tns-completion-end-###
-
-# Android SDK
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-export ANDROID_HOME=/usr/local/share/android-sdk
-export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions'
-
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # User configuration
 
@@ -89,7 +67,6 @@ export PATH="/usr/sbin:$PATH"
 export PATH="/sbin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.npm-packages/bin:$PATH"
-export PATH="$HOME/LaravelProjects/spark-installer:$PATH"
 export PATH="/usr/local/opt/node@12/bin:$PATH"
 export PATH="$ANDROID_HOME/tools/bin:$PATH"
 export PATH="$ANDROID_HOME/tools:$PATH"
