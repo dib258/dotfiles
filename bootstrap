@@ -218,7 +218,7 @@ TITLE
 				# Remove bad access to zsh
 				compaudit | xargs chmod g-w,o-w    
 			fi
-
+        ;;
 		0 | *)
 			finished=true
 			cat <<'TITLE'
